@@ -1,0 +1,40 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 100svh;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.subtitle {
+  color: #9ca3af;
+  margin: 0 0 24px;
+}
+
+.reaction-tester {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(100%, 480px);
+  height: 280px;
+  padding: 24px;
+  box-sizing: border-box;
+  background: #1f2028;
+  border: 2px solid #2e303a;
+  border-radius: 12px;
+  color: #f3f4f6;
+  font-size: 1.25rem;
+  user-select: none;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.reaction-tester:hover {
+  background: #262832;
+  border-color: #4b4e5c;
+}
