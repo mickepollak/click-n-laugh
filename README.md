@@ -9,6 +9,11 @@ npm install
 npm run dev
 ```
 
+## Team workflow
+
+We work on feature branches and merge with pull requests. Read
+[CONTRIBUTING.md](CONTRIBUTING.md) before your first change.
+
 ## Scripts
 
 - `npm run dev` – start the development server
