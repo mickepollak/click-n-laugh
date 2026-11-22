@@ -1,0 +1,160 @@
+:root {
+  --bg: #0e1016;
+  --text: #f5f6fa;
+  --muted: #c9ccda;
+  --yellow: #ffc72c;
+  --yellow-light: #ffe066;
+  --orange: #ffa400;
+  --orange-dark: #b36b00;
+  --ink: #1a1200;
+}
+
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes wobble {
+  0%,
+  100% {
+    transform: rotate(var(--r)) translateY(0);
+  }
+  50% {
+    transform: rotate(var(--r)) translateY(-8px);
+  }
+}
+
+.homePage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.logo-wrap {
+  margin: 0;
+  line-height: 0;
+}
+.logo {
+  display: block;
+  width: min(660px, 88vw);
+  height: auto;
+  border-radius: 56px;
+  mix-blend-mode: lighten; /* hides the logo's dark backing on the page background */
+  animation: floaty 5s ease-in-out infinite;
+}
+
+/* ---------- Tagline label ---------- */
+.tagline {
+  margin: 0;
+  font-family: "Fredoka", sans-serif;
+  font-weight: 600;
+  font-size: 26px;
+  color: var(--muted);
+}
+.tagline span {
+  color: var(--yellow);
+}
+
+/* ---------- START GAME button ---------- */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 72px;
+  padding: 0 64px;
+  font-family: "Fredoka", sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  background: linear-gradient(
+    180deg,
+    var(--yellow-light) 0%,
+    var(--yellow) 55%,
+    var(--orange) 100%
+  );
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow:
+    0 8px 0 var(--orange-dark),
+    0 22px 44px rgba(255, 167, 0, 0.32);
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease;
+}
+.cta:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 11px 0 var(--orange-dark),
+    0 28px 52px rgba(255, 167, 0, 0.4);
+}
+.cta:active {
+  transform: translateY(6px);
+  box-shadow:
+    0 2px 0 var(--orange-dark),
+    0 8px 20px rgba(255, 167, 0, 0.3);
+}
+.cta:focus-visible,
+.btn-ghost:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 4px;
+}
+
+/* ---------- Floating labels (HAHA / LOL / HEHE / LMAO) ---------- */
+.chip {
+  position: absolute;
+  font-family: "Fredoka", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--yellow);
+  background: rgba(255, 199, 44, 0.08);
+  border: 2px solid rgba(255, 199, 44, 0.35);
+  border-radius: 16px;
+  padding: 10px 20px;
+  animation: wobble 4.5s ease-in-out infinite;
+}
+.chip--1 {
+  --r: -10deg;
+  left: 7%;
+  top: 30%;
+}
+.chip--2 {
+  --r: 8deg;
+  left: 15%;
+  top: 60%;
+  font-size: 20px;
+  padding: 8px 18px;
+  animation-delay: -1.5s;
+}
+.chip--3 {
+  --r: 9deg;
+  right: 8%;
+  top: 27%;
+  animation-delay: -3s;
+}
+.chip--4 {
+  --r: -7deg;
+  right: 16%;
+  top: 58%;
+  font-size: 20px;
+  padding: 8px 18px;
+  animation-delay: -2s;
+}
+
+/* Hide the floating labels on small screens, respect reduced motion */
+@media (max-width: 900px) {
+  .chip {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+  }
+}

@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
-  
-  function ReactionTest() {
+
+function ReactionTest() {
   const [state, setState] = useState("idle");
   const [result, setResult] = useState(null);
 
@@ -18,16 +18,12 @@ import { useState, useRef } from "react";
         startTime.current = performance.now();
         setState("ready");
       }, delay);
-
     } else if (state === "waiting") {
       clearTimeout(timeout.current);
       setState("done");
       setResult("Too early!");
-
     } else if (state === "ready") {
-      const reactionTime = Math.round(
-        performance.now() - startTime.current
-      );
+      const reactionTime = Math.round(performance.now() - startTime.current);
 
       setState("done");
       setResult(`${reactionTime} ms`);
@@ -38,31 +34,27 @@ import { useState, useRef } from "react";
     idle: "#444",
     waiting: "#444",
     ready: "green",
-    done: "#444"
+    done: "#444",
   };
 
-
-   
-return (
-    <div className="reaction-tester"
+  return (
+    <div
+      className="reaction-tester"
       onClick={handleClick}
       style={{
         background: background[state],
         color: "white",
-        
       }}
     >
       {state === "idle" && "Click to start"}
       {state === "waiting" && "Wait for green..."}
       {state === "ready" && "CLICK NOW!"}
-      {state === "done" && (
-        result === "Too early!"
+      {state === "done" &&
+        (result === "Too early!"
           ? "Too early! Click to retry."
-          : `${result} - Click to retry`
-      )}
+          : `${result} - Click to retry`)}
     </div>
   );
 }
-
 
 export default ReactionTest;
