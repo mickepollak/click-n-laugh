@@ -8,7 +8,6 @@ function App() {
   return (
     <BrowserRouter>
       <main className="app">
-        <h1>Click n Laugh</h1>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/levels" element={<Levels />} />

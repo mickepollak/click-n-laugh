@@ -1,7 +1,7 @@
 function LevelButton(props) {
   return (
     <>
-      <button>Level {props.level} </button>
+      <button className="cta">{props.level} </button>
     </>
   );
 }
